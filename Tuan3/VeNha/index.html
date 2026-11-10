@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bài tập CSS cơ bản – Phạm Tiến Hưng, ngành Thương mại điện tử, UEH.">
+  <title>Bài tập CSS - Phạm Tiến Hưng</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f1f5f8; font-family: Arial, sans-serif; color: #25344a; }
+    main { max-width: 920px; margin: 36px auto; padding: 0 18px; }
+    .profile, .work { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 5px 22px #1a304515; }
+    .profile { border-top: 5px solid #087b85; display: flex; align-items: center; gap: 25px; }
+    .profile-copy { flex: 1; min-width: 0; }
+    .portrait-frame { width: 192px; height: 190px; display: flex; flex: 0 0 192px; overflow: hidden; align-items: flex-end; justify-content: center; border-radius: 14px; background: linear-gradient(145deg, #eff8fa 0%, #dbeaec 100%); border: 1px solid #d8e8ec; }
+    .portrait { width: 188px; height: 184px; object-fit: contain; object-position: center bottom; display: block; }
+    h1 { margin: 0 0 12px; font-size: 29px; line-height: 1.2; }
+    h2 { font-size: 21px; margin: 0 0 17px; }
+    p { line-height: 1.65; margin: 10px 0; }
+    .subtitle { color: #667587; font-size: 14px; margin-bottom: 6px; }
+    .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: 12px; }
+    .links a { padding: 15px; border: 1px solid #dce7eb; border-radius: 9px; color: #075d68; text-decoration: none; font-weight: bold; transition: background .2s, transform .2s, border-color .2s; }
+    .links a:hover, .links a:focus-visible { background: #e3f4f4; border-color: #9ad3d7; transform: translateY(-2px); text-decoration: underline; }
+    .github { display: inline-flex; align-items: center; padding: 10px 14px; border-radius: 8px; background: #e8f6f7; color: #076b78; text-decoration: none; font-weight: 600; }
+    .github:hover, .github:focus-visible { background: #d2ebed; text-decoration: underline; }
+    .note { color: #697789; font-size: 13px; }
+    @media (max-width: 600px) { .profile { flex-direction: column-reverse; align-items: flex-start; } .portrait-frame { width: 100%; flex-basis: auto; height: 205px; } .portrait { width: 210px; height: 205px; } .profile, .work { padding: 22px; } h1 { font-size: 25px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="profile">
+      <div class="profile-copy">
+        <p class="subtitle">PHÁT TRIỂN ỨNG DỤNG WEB/TMĐT · BÀI TẬP CSS</p>
+        <h1>Phạm Tiến Hưng</h1>
+        <p><strong>MSSV:</strong> 31241025521<br><strong>Ngành:</strong> Thương mại điện tử<br><strong>Trường:</strong> Đại học Kinh tế Thành phố Hồ Chí Minh (UEH)</p>
+        <p><a class="github" href="https://github.com/phamtienhung816" target="_blank" rel="noopener noreferrer">GitHub cá nhân: phamtienhung816</a></p>
+      </div>
+      <div class="portrait-frame"><img class="portrait" src="anh-sinh-vien.png" alt="Ảnh sinh viên Phạm Tiến Hưng"></div>
+    </section>
+    <section class="work">
+      <h2>Danh sách bài tập</h2>
+      <div class="links">
+        <a href="BaiTap1.html">Bài 1 · Trò chơi CSS</a>
+        <a href="BaiTap2.html">Bài 2 · Định dạng CSS</a>
+        <a href="BaiTap3.html">Bài 3 · Lựa chọn bài làm</a>
+        <a href="BaiTap4.html">Bài 4 · Menu</a>
+        <a href="BaiTap5.html">Bài 5 · Hosting</a>
+        <a href="BaiTap6.html">Bài 6 · Portfolio</a>
+        <a href="BaiTap7.html">Bài 7 · Bố cục</a>
+        <a href="BaiTap8.html">Bài 8 · Bat Family</a>
+        <a href="BaiTap9.html">Bài 9 · Font Awesome</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
