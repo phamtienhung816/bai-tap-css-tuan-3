@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bài tập trên lớp Front-end nâng cao – Phạm Tiến Hưng, học phần Phát triển ứng dụng TMĐT, UEH.">
+  <title>Front-end nâng cao – Phạm Tiến Hưng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1b1f24;
+      --muted: #5b6470;
+      --line: #e3e6ea;
+      --bg: #f7f8fa;
+      --card: #ffffff;
+      --accent: #1a56db;
+      --accent-soft: #e8efff;
+      --code-bg: #1e1e1e;
+      --code-ink: #d4d4d4;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Be Vietnam Pro", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+
+    /* Thanh điều hướng */
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 58px; }
+    .brand { font-weight: 800; color: var(--ink); text-decoration: none; }
+    .brand span { color: var(--accent); }
+    .menu { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; }
+    .menu a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; }
+    .menu a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { padding: 56px 0 36px; }
+    .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); }
+    h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; margin: 10px 0 14px; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 720px; margin: 0; }
+    .meta { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; }
+
+    /* Mục lục bài */
+    .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 8px 0 12px; }
+    .toc a {
+      display: block; background: var(--card); border: 1px solid var(--line); border-radius: 12px;
+      padding: 16px; text-decoration: none; color: var(--ink);
+    }
+    .toc a:hover { border-color: var(--accent); }
+    .toc b { display: block; font-size: 13px; color: var(--accent); }
+
+    /* Phần nội dung */
+    section { padding: 40px 0; border-top: 1px solid var(--line); }
+    h2 { font-size: 28px; margin: 0 0 8px; }
+    h3 { font-size: 19px; margin: 30px 0 8px; }
+    p { margin: 0 0 12px; }
+    .note {
+      background: var(--accent-soft); border-left: 4px solid var(--accent);
+      padding: 12px 16px; border-radius: 6px; margin: 16px 0;
+    }
+    pre {
+      background: var(--code-bg); color: var(--code-ink); padding: 16px 18px; border-radius: 10px;
+      overflow-x: auto; font: 500 14px/1.6 "JetBrains Mono", Consolas, monospace; margin: 12px 0 16px;
+    }
+    code { font-family: "JetBrains Mono", Consolas, monospace; font-size: .92em; }
+    p code, li code, td code { background: #eceff3; padding: 1px 6px; border-radius: 4px; }
+    .c { color: #6a9955; }
+    .k { color: #c586c0; }
+    .s { color: #ce9178; }
+    .n { color: #b5cea8; }
+
+    table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 10px; overflow: hidden; margin: 12px 0 18px; }
+    th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); font-size: 15px; vertical-align: top; }
+    th { background: #f0f2f5; }
+
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 14px 0; }
+    .gallery.one { grid-template-columns: 1fr; }
+    figure { margin: 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { font-size: 14px; color: var(--muted); padding: 10px 14px; }
+
+    .btn {
+      display: inline-block; background: var(--accent); color: #fff; text-decoration: none;
+      padding: 10px 18px; border-radius: 8px; font-weight: 600; margin: 4px 8px 4px 0;
+    }
+    .btn.ghost { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+
+    footer { padding: 30px 0 50px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 720px) {
+      .menu { display: none; }
+      .toc, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">FE <span>nâng cao</span> · Tiến Hưng</a>
+    <ul class="menu">
+      <li><a href="#responsive">Responsive</a></li>
+      <li><a href="#picture">Ảnh &lt;picture&gt;</a></li>
+      <li><a href="#dino">DevTools &amp; Dino</a></li>
+      <li><a href="#tong-ket">Tổng kết</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Phát triển ứng dụng TMĐT · Bài tập trên lớp</span>
+      <h1>Front-end nâng cao: responsive, ảnh theo màn hình và “hack” game Dino bằng DevTools</h1>
+      <p class="lead">Buổi học gồm ba phần. Phần một dùng <code>@media</code> để bố cục tự đổi theo độ rộng màn hình và khi in. Phần hai dùng thẻ <code>&lt;picture&gt;</code> để mỗi cỡ màn hình hiện một logo khác nhau. Phần ba dùng Chrome DevTools để đọc code game khủng long, cho nó không chết, chạy nhanh hơn và nhảy cao hơn.</p>
+      <div class="meta">
+        <span class="chip">Phạm Tiến Hưng · 31241025521</span>
+        <span class="chip">Lớp học phần 26C1INF50902701</span>
+        <span class="chip">UEH</span>
+      </div>
+      <div style="margin-top:22px">
+        <a class="btn" href="Bai1.html" target="_blank" rel="noopener">Mở bài demo Bai1.html</a>
+        <a class="btn ghost" href="https://github.com/phamtienhung816/bai-tap-css-tuan-3/tree/main/FE-NangCao" target="_blank" rel="noopener">Mã nguồn trên GitHub</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <nav class="toc">
+      <a href="#responsive"><b>Phần 1</b>Bố cục responsive với @media</a>
+      <a href="#picture"><b>Phần 2</b>Ảnh responsive với &lt;picture&gt;</a>
+      <a href="#dino"><b>Phần 3</b>DevTools: chỉnh game Dino</a>
+    </nav>
+  </div>
+
+  <!-- ===== PHẦN 1 ===== -->
+  <section id="responsive">
+    <div class="wrap">
+      <h2>Phần 1. Bố cục responsive với <code>@media</code></h2>
+      <p>Trang có hai khối: <code>.left</code> màu xanh chiếm 70% và <code>.right</code> màu đỏ chiếm 30%, đặt cạnh nhau bằng <code>float</code>. Sau đó thêm ba media query để bố cục đổi theo môi trường hiển thị.</p>
+
+      <table>
+        <tr><th>Điều kiện</th><th>Media query</th><th>Kết quả</th></tr>
+        <tr><td>Màn hình ≤ 768px (tablet, điện thoại)</td><td><code>screen and (max-width: 768px)</code></td><td>Hai khối đều rộng 100%, xếp chồng lên nhau</td></tr>
+        <tr><td>Màn hình từ 320px đến 480px</td><td><code>screen and (max-width: 479px) and (min-width: 321px)</code></td><td>Ẩn khối <code>.right</code></td></tr>
+        <tr><td>Khi in trang</td><td><code>print</code></td><td>Ẩn <code>.left</code>, <code>.right</code> rộng 100%</td></tr>
+      </table>
+
+<pre><span class="k">@media</span> only screen and (max-width: <span class="n">768px</span>) {
+  .left, .right { width: <span class="n">100%</span>; }
+}
+
+<span class="c">/* Nếu chiều rộng của trình duyệt từ 320px đến 480px thì ẩn class Right */</span>
+<span class="k">@media</span> only screen and (max-width: <span class="n">479px</span>) and (min-width: <span class="n">321px</span>) {
+  .right { display: none; }
+}
+
+<span class="c">/* Nếu ở chế độ máy in thì ẩn class Left */</span>
+<span class="k">@media</span> only print {
+  .left  { display: none; }
+  .right { width: <span class="n">100%</span>; }
+}</pre>
+
+      <p>Để kiểm tra, mở DevTools (F12), bật chế độ thiết bị (Ctrl + Shift + M) và kéo độ rộng màn hình.</p>
+      <div class="gallery">
+        <figure><img src="images/rwd-1-desktop.png" alt="Màn hình rộng: hai khối nằm cạnh nhau" loading="lazy"><figcaption>Màn hình rộng: xanh 70% và đỏ 30% nằm cạnh nhau.</figcaption></figure>
+        <figure><img src="images/rwd-4-602.png" alt="Màn hình 602px: hai khối xếp chồng" loading="lazy"><figcaption>Dưới 768px: hai khối rộng 100% và xếp chồng.</figcaption></figure>
+        <figure><img src="images/rwd-2-mobile-440.png" alt="Màn hình 440px trước khi ẩn khối phải" loading="lazy"><figcaption>Màn hình 440px khi mới có rule 768px: vẫn còn khối đỏ.</figcaption></figure>
+        <figure><img src="images/rwd-3-an-right.png" alt="Màn hình 440px sau khi ẩn khối phải" loading="lazy"><figcaption>Sau khi thêm rule 320–480px: khối <code>.right</code> bị ẩn.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHẦN 2 ===== -->
+  <section id="picture">
+    <div class="wrap">
+      <h2>Phần 2. Ảnh responsive với <code>&lt;picture&gt;</code></h2>
+      <p>Thẻ <code>&lt;picture&gt;</code> chứa nhiều thẻ <code>&lt;source&gt;</code>, mỗi thẻ có điều kiện <code>media</code> riêng. Trình duyệt duyệt từ trên xuống, gặp <code>source</code> đầu tiên khớp thì dùng ảnh đó. Nếu không cái nào khớp thì dùng ảnh trong thẻ <code>&lt;img&gt;</code> cuối cùng. Vì vậy điều kiện lớn nhất phải viết trước.</p>
+
+<pre>&lt;picture&gt;
+  <span class="c">&lt;!-- Bự nhất (&gt;= 1000px): Logo UEH --&gt;</span>
+  &lt;source media=<span class="s">"(min-width: 1000px)"</span> srcset=<span class="s">"https://www.ueh.edu.vn/images/logo-header.png"</span>&gt;
+
+  <span class="c">&lt;!-- Kéo vô (600px - 999px): Logo CTD --&gt;</span>
+  &lt;source media=<span class="s">"(min-width: 600px)"</span> srcset=<span class="s">"https://ctd.ueh.edu.vn/wp-content/uploads/2023/07/cropped-TV_trang_CTD.png"</span>&gt;
+
+  <span class="c">&lt;!-- Kéo vô nữa (&lt; 600px): Logo BIT --&gt;</span>
+  &lt;img alt=<span class="s">"Logo"</span> width=<span class="s">"400"</span> src=<span class="s">"https://ueh.edu.vn/schools/college/images/logo/bit-header-logo.png"</span>&gt;
+&lt;/picture&gt;</pre>
+
+      <div class="gallery">
+        <figure><img src="images/pic-1-ueh.png" alt="Từ 1000px: logo UEH" loading="lazy"><figcaption>≥ 1000px: logo UEH.</figcaption></figure>
+        <figure><img src="images/pic-2-ctd.png" alt="600 đến 999px: logo Trường Công nghệ và Thiết kế" loading="lazy"><figcaption>600–999px: logo Trường Công nghệ và Thiết kế.</figcaption></figure>
+        <figure><img src="images/pic-3-bit.png" alt="Dưới 600px: logo Khoa Công nghệ thông tin kinh doanh" loading="lazy"><figcaption>&lt; 600px: logo BIT (ảnh trong thẻ <code>&lt;img&gt;</code>).</figcaption></figure>
+      </div>
+      <div class="note">Khác với CSS <code>display: none</code>, <code>&lt;picture&gt;</code> chỉ tải đúng một ảnh hợp với màn hình. Điện thoại không phải tải ảnh lớn của máy tính, nên trang nhẹ hơn.</div>
+    </div>
+  </section>
+
+  <!-- ===== PHẦN 3 ===== -->
+  <section id="dino">
+    <div class="wrap">
+      <h2>Phần 3. Dùng DevTools chỉnh game khủng long (<code>chrome://dino</code>)</h2>
+      <p>Game khủng long của Chrome viết bằng JavaScript nên có thể mở code ra đọc và sửa ngay khi game đang chạy. Phần này luyện cách dùng tab <b>Sources</b> (tìm code, đặt breakpoint) và tab <b>Console</b> (chạy lệnh để đổi giá trị).</p>
+
+      <h3>Bước 1. Tìm code và đặt breakpoint</h3>
+      <p>Mở <code>chrome://dino</code>, nhấn F12, vào tab Sources và tìm từ khóa <code>speed</code>. Đặt breakpoint trong hàm <code>update</code>. Khi game dừng ở đó, khung Scope cho biết <code>this</code> đang là object nào và các biến có giá trị gì.</p>
+      <div class="gallery">
+        <figure><img src="images/dino-2-sources-tim-speed.png" alt="Tìm từ khóa speed trong tab Sources" loading="lazy"><figcaption>Tìm <code>speed</code> trong code của game.</figcaption></figure>
+        <figure><img src="images/dino-3-breakpoint.png" alt="Game dừng ở breakpoint trong hàm update" loading="lazy"><figcaption>Game dừng ở breakpoint, xem được biến trong Scope.</figcaption></figure>
+      </div>
+
+      <h3>Bước 2. Cho khủng long không bao giờ chết</h3>
+      <p>Khi đụng xương rồng, game gọi hàm <code>gameOver()</code>. Thay hàm này bằng một hàm rỗng thì game không kết thúc nữa.</p>
+<pre>this.gameOver = () =&gt; {}            <span class="c">// khi đang dừng ở breakpoint trong Runner</span>
+Runner.instance_.gameOver = function(){}   <span class="c">// bản game có biến Runner toàn cục</span></pre>
+      <div class="gallery">
+        <figure><img src="images/dino-4-gameover-console.png" alt="Ghi đè gameOver trong Console" loading="lazy"><figcaption>Ghi đè <code>gameOver</code> trong Console.</figcaption></figure>
+        <figure><img src="images/dino-5-khong-chet.png" alt="Khủng long đi xuyên qua xương rồng" loading="lazy"><figcaption>Đụng xương rồng nhưng vẫn chạy tiếp.</figcaption></figure>
+      </div>
+
+      <h3>Bước 3. Đổi tốc độ cho chạy thật nhanh</h3>
+      <p>Tốc độ mặc định khoảng 6. Hàm <code>setSpeed()</code> gán thẳng tốc độ mới.</p>
+<pre>Runner.instance_.setSpeed(<span class="n">60</span>)   <span class="c">// hoặc this.setSpeed(60) khi đang ở breakpoint</span></pre>
+
+      <h3>Bước 4. Đổi độ nhảy cho nhảy thật cao</h3>
+      <p>Độ cao cú nhảy phụ thuộc vận tốc ban đầu khi nhảy (mặc định 10). Hàm <code>setJumpVelocity()</code> của khủng long đổi giá trị này.</p>
+<pre>Runner.instance_.tRex.setJumpVelocity(<span class="n">22</span>)   <span class="c">// hoặc this.tRex.setJumpVelocity(22)</span></pre>
+
+      <div class="gallery">
+        <figure><img src="images/dino-6-truoc.png" alt="Trước khi đổi: tốc độ 6.8, vận tốc nhảy 10" loading="lazy"><figcaption>Trước khi đổi: <code>currentSpeed ≈ 6.8</code>, vận tốc nhảy 10.</figcaption></figure>
+        <figure><img src="images/dino-7-toc-do-60.png" alt="Sau setSpeed(60)" loading="lazy"><figcaption>Sau <code>setSpeed(60)</code>: tốc độ 60.</figcaption></figure>
+      </div>
+      <div class="gallery one">
+        <figure><img src="images/dino-8-nhay-cao.png" alt="Khủng long bay vượt mép trên khung game" loading="lazy"><figcaption>Sau <code>setJumpVelocity(22)</code>: khủng long bay vượt khỏi mép trên khung game, ảnh chụp lúc đang rơi xuống.</figcaption></figure>
+        <figure><img src="images/dino-9-bieu-do.png" alt="Biểu đồ so sánh tốc độ và độ cao nhảy trước và sau" loading="lazy"><figcaption>Đo trước/sau: trong 2 giây chạy được 160 m thay vì 19 m; cú nhảy cao 188 px thay vì 77 px.</figcaption></figure>
+      </div>
+      <div class="note">Bản <code>chrome://dino</code> mới không còn biến <code>Runner</code> toàn cục, nên phải dừng ở breakpoint bên trong một hàm của Runner rồi dùng <code>this</code>. Ảnh minh chứng tốc độ và độ nhảy được chụp trên bản T-Rex Runner mã nguồn mở, dùng cùng code game với Chrome.</div>
+    </div>
+  </section>
+
+  <!-- ===== TỔNG KẾT ===== -->
+  <section id="tong-ket">
+    <div class="wrap">
+      <h2>Tổng kết</h2>
+      <table>
+        <tr><th>Nội dung</th><th>Điều rút ra</th></tr>
+        <tr><td><code>@media</code></td><td>Một trang HTML có thể đổi bố cục theo độ rộng màn hình hoặc khi in, không cần viết trang riêng cho điện thoại.</td></tr>
+        <tr><td><code>&lt;picture&gt;</code></td><td>Chọn ảnh theo màn hình; <code>source</code> lớn nhất đặt trước, <code>img</code> làm ảnh dự phòng cuối.</td></tr>
+        <tr><td>DevTools</td><td>Sources để tìm code và đặt breakpoint; Console để đọc và sửa giá trị khi trang đang chạy. Đây cũng là cách debug một website thật.</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Phạm Tiến Hưng · 31241025521 · Phát triển ứng dụng TMĐT · UEH</div>
+</footer>
+
+</body>
+</html>
