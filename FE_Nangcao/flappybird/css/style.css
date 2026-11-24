@@ -1,0 +1,22 @@
+body{margin:0;background:#2b2f3a;font-family:"Segoe UI",Arial,sans-serif}
+#game{position:relative;width:480px;height:640px;margin:20px auto;overflow:hidden;border-radius:10px;
+      background:url(../images/background.png);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+#bird{position:absolute;left:90px;top:0;width:68px;height:48px;background:url(../images/bird.png);z-index:5;
+      will-change:transform}
+.pipe{position:absolute;width:80px;background:url(../images/pipe.png) repeat-y;z-index:3;will-change:transform}
+.pipe:after{content:"";position:absolute;left:-8px;width:96px;height:34px;background:url(../images/pipe-cap.png)}
+.pipe.top:after{bottom:0}
+.pipe.bottom:after{top:0}
+#level{position:absolute;top:12px;left:14px;z-index:10;background:rgba(0,0,0,.55);color:#ffd54a;
+       font-weight:800;font-size:20px;padding:6px 12px;border-radius:6px}
+#score{position:absolute;top:20px;width:100%;text-align:center;font-size:56px;font-weight:900;color:#fff;
+       text-shadow:3px 3px 0 #000;z-index:10}
+#best{position:absolute;top:14px;right:14px;z-index:10;color:#fff;font-weight:700;text-shadow:1px 1px 0 #000}
+#toast{position:absolute;top:120px;width:100%;text-align:center;font-size:32px;font-weight:900;color:#ffd54a;
+       text-shadow:2px 2px 0 #000;z-index:11;display:none}
+#panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:320px;padding:22px;text-align:center;
+       background:rgba(255,255,255,.93);border-radius:12px;z-index:20;display:none}
+#panel.show{display:block}
+#panel h1{margin:0 0 8px;color:#e8641c}
+#panel .hint{color:#777;font-size:13px}
+#panel button{padding:10px 26px;font-size:18px;border:0;border-radius:6px;background:#2e9b47;color:#fff;cursor:pointer}
