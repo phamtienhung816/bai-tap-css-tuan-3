@@ -1,0 +1,32 @@
+body{background:#faf6ee;font-family:"Segoe UI",Arial,sans-serif;color:#3b2a1a}
+.navbar-default{background:#fff;border-color:#f0e2c8;margin-bottom:0}
+.navbar-brand{padding:10px 15px}
+.navbar-default .navbar-nav>.active>a{background:#ffb020;color:#fff}
+.carousel{margin:20px 0;border-radius:8px;overflow:hidden}
+.carousel img{width:100%}
+.list-group-item.active,.list-group-item.active:hover{background:#ffb020;border-color:#ffb020}
+h3.title{color:#8a4d10;font-weight:700}
+.thumbnail{position:relative;border-color:#f0e2c8;transition:box-shadow .2s, transform .2s}
+.product .thumbnail:hover{box-shadow:0 8px 20px rgba(138,77,16,.18);transform:translateY(-3px)}
+.thumbnail .caption h4 a{color:#3b2a1a}
+.price{color:#d0021b;font-weight:700}
+.old-price{color:#999;text-decoration:line-through;font-size:13px;margin-left:6px}
+/* Nhãn giảm giá (góc trên trái) và New/Best seller (góc trên phải) */
+.tag-sale{position:absolute;top:10px;left:10px;background:#d0021b;color:#fff;font-weight:700;padding:4px 9px;border-radius:3px;z-index:2}
+.tag-type{position:absolute;top:10px;right:10px;color:#fff;font-weight:700;padding:4px 9px;border-radius:3px;z-index:2}
+.tag-new{background:#2e9b47}
+.tag-best{background:#ff8a00}
+.add-to-cart{position:absolute;top:44%;right:16px;font-size:28px}
+.add-to-cart a{color:#ffb020}
+.stock .progress{height:14px;margin-bottom:4px}
+.stock small{color:#7a6650}
+.rating-container .filled-stars{color:#ffb020}
+.xzoom-thumbs{margin-top:10px;text-align:center}
+.xzoom-gallery{width:80px;margin:4px;border:2px solid #eee;cursor:pointer}
+.xzoom-gallery.xactive{border-color:#ffb020}
+.xzoom{width:100%;box-shadow:none;border:1px solid #f0e2c8}
+.size-btn.active{background:#ffb020;color:#fff}
+footer{background:#3b2a1a;color:#f0e2c8;padding:20px 0;margin-top:30px}
+.order-row{padding:8px 0}
+.order-row .col-sm-1 img{max-height:50px}
+.xzoom-thumbs a{display:inline-block}

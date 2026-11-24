@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chi tiết sản phẩm | Hưng Phát - Trái cây sấy Việt</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lib/star-rating/css/star-rating.min.css">
+    <link rel="stylesheet" href="lib/star-rating/themes/krajee-svg/theme.min.css">
+    <link rel="stylesheet" href="lib/xzoom.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="Hưng Phát" height="34"></a>
+                <form class="visible-xs-inline-block" style="margin-top:10px">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Tìm sản phẩm..."></div>
+                </form>
+            </div>
+            <div class="collapse navbar-collapse" id="main-nav">
+                <ul class="nav navbar-nav">
+                    <li class=""><a href="index.html">Trang chủ</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Danh mục <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Trái cây sấy dẻo</a></li>
+                            <li><a href="#">Trái cây sấy giòn</a></li>
+                            <li><a href="#">Hạt dinh dưỡng</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Hộp quà Tết</a></li>
+                        </ul>
+                    </li>
+                    <li class=""><a href="status.html">Đơn hàng</a></li>
+                </ul>
+                <form class="navbar-form navbar-left hidden-xs">
+                    <div class="form-group"><input type="text" class="form-control" placeholder="Tìm sản phẩm..."></div>
+                    <button type="submit" class="btn btn-default">Tìm</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="status.html"><span class="badge pull-right">3</span><i class="glyphicon glyphicon-shopping-cart"></i></a></li>
+                    <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+                    <li><a href="#">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row" style="margin-top:20px">
+        <div class="col-sm-4 col-md-3">
+            <h3 class="title">Danh mục</h3>
+            <ul class="list-group">
+                <li class="list-group-item active"><span class="badge">9</span>Tất cả sản phẩm</li>
+                <li class="list-group-item"><span class="badge">6</span>Trái cây sấy dẻo</li>
+                <li class="list-group-item"><span class="badge">1</span>Trái cây sấy giòn</li>
+                <li class="list-group-item"><span class="badge">1</span>Nông sản sấy</li>
+                <li class="list-group-item"><span class="badge">1</span>Hạt dinh dưỡng</li>
+            </ul>
+        </div>
+
+            <div class="col-sm-8 col-md-9">
+                <div class="thumbnail" style="padding:15px">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tag-sale" id="d-sale"></span><span class="tag-type" id="d-type"></span>
+                            <img class="xzoom img-responsive" id="xzoom-default" src="" xoriginal="">
+                            <div class="xzoom-thumbs" id="thumbs"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 id="d-name" style="margin-top:0"></h3>
+                            <p><span class="price" id="d-price" style="font-size:22px"></span><span class="old-price" id="d-old"></span></p>
+                            <div class="ratings"><input class="rv" id="d-rating"> <span id="d-reviews"></span></div>
+                            <p id="d-desc"></p>
+                            <div class="stock"><label>Tình trạng kho</label>
+                                <div class="progress" style="height:20px"><div class="progress-bar progress-bar-striped active" id="d-stock"></div></div>
+                                <small id="d-stock-txt"></small></div>
+                            <form role="form" style="margin-top:10px">
+                                <div class="form-group"><label>Số lượng</label> <input type="number" class="input-sm" value="1" min="1" style="width:70px"></div>
+                                <div class="form-group"><label>Hương vị</label>
+                                    <select class="input-sm"><option>Nguyên bản</option><option>Ít ngọt</option><option>Muối ớt</option></select></div>
+                                <div class="form-group"><label>Khối lượng</label>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default size-btn">100g</button>
+                                        <button type="button" class="btn btn-default size-btn active">250g</button>
+                                        <button type="button" class="btn btn-default size-btn">500g</button>
+                                        <button type="button" class="btn btn-default size-btn">1kg</button>
+                                    </div></div>
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-default">Liên hệ người bán</button>
+                                    <button type="button" class="btn btn-success">Thêm vào giỏ</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="well" id="comments">
+                    <div class="text-right"><a class="btn btn-success">Viết đánh giá</a></div>
+                    <hr>
+                    <div class="row"><div class="col-md-12"><input class="rv" value="5"> <b>Nguyễn Thu Hà</b><span class="pull-right">1 ngày trước</span>
+                        <p>Từ <em>TP. Hồ Chí Minh</em></p><p>Sản phẩm ngon, đóng gói kỹ, giao nhanh. Sẽ mua lại!</p></div></div><hr>
+                    <div class="row"><div class="col-md-12"><input class="rv" value="4"> <b>Trần Minh Khoa</b><span class="pull-right">3 ngày trước</span>
+                        <p>Từ <em>Đà Nẵng</em></p><p>Vị vừa ăn, không quá ngọt. Giá hơi cao một chút.</p></div></div><hr>
+                    <div class="row"><div class="col-md-12"><input class="rv" value="4.5"> <b>Lê Ngọc Ánh</b><span class="pull-right">1 tuần trước</span>
+                        <p>Từ <em>Cần Thơ</em></p><p>Mua làm quà biếu, ai cũng khen.</p></div></div>
+                </div>
+                <h3 class="title">Sản phẩm khác</h3>
+                <div class="row" id="others"></div>
+            </div>
+        </div>
+    </div>
+    <footer><div class="container text-center">© 2026 Hưng Phát – Trái cây sấy Việt • 59C Nguyễn Đình Chiểu, Q.3, TP.HCM • Hotline 1900 1234</div></footer>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/star-rating/js/star-rating.min.js"></script>
+    <script src="lib/star-rating/themes/krajee-svg/theme.min.js"></script>
+    <script src="lib/xzoom.min.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+$(function () {
+    var id = (location.search.match(/id=(\w+)/) || [])[1] || 'xoai';
+    var p = $.grep(PRODUCTS, function (x) { return x.id === id; })[0];
+    var s = stockInfo(p);
+    document.title = p.name + ' | Hưng Phát';
+    $('#d-name').text(p.name);
+    $('#d-price').text(vnd(p.price)); $('#d-old').text(vnd(p.old));
+    $('#d-sale').text('-' + discount(p) + '%');
+    if (p.badge) $('#d-type').text(p.badge).addClass(p.badge === 'New' ? 'tag-new' : 'tag-best'); else $('#d-type').hide();
+    $('#d-desc').text(p.desc);
+    $('#d-reviews').text(p.rating + ' / 5 (' + p.reviews + ' đánh giá)');
+    $('#d-rating').val(p.rating);
+    $('#d-stock').addClass(s.cls).css('width', s.pct + '%').text(s.pct + '%');
+    $('#d-stock-txt').text(s.txt + ': còn ' + p.stock + ' gói / đã bán ' + p.sold + ' gói');
+    // xZoom: ảnh lớn + 4 ảnh nhỏ để chọn
+    var views = ['front', 'back', 'side', 'open'];
+    $('#xzoom-default').attr({src: 'images/' + p.id + '-front.jpg', xoriginal: 'images/' + p.id + '-front.jpg'});
+    $.each(views, function (i, v) {
+        $('#thumbs').append('<a href="images/' + p.id + '-' + v + '.jpg"><img class="xzoom-gallery" src="images/' + p.id + '-' + v + '-sm.jpg"' +
+            (i === 0 ? ' xpreview="images/' + p.id + '-front.jpg"' : '') + '></a>');
+    });
+    $('.xzoom, .xzoom-gallery').xzoom({tint: '#333', Xoffset: 15, position: 'right', defaultScale: -0.4});
+    $('.size-btn').click(function () { $('.size-btn').removeClass('active'); $(this).addClass('active'); });
+    $.each(PRODUCTS.filter(function (x) { return x.id !== p.id; }).slice(0, 3), function (i, o) {
+        $('#others').append('<div class="col-xs-4 product"><div class="thumbnail"><span class="tag-sale">-' + discount(o) + '%</span>' +
+            '<a href="product.html?id=' + o.id + '"><img src="images/' + o.id + '-front-sm.jpg"></a><div class="caption"><h5>' + o.name +
+            '</h5><input class="rv" value="' + o.rating + '"></div></div></div>');
+    });
+    $(".rv").rating({displayOnly: true, size: 'xs', step: 0.5, showCaption: false});
+});
+</script>
+
+</body>
+</html>
