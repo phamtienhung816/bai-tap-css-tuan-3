@@ -1,6 +1,6 @@
 // Dữ liệu sản phẩm của cửa hàng trái cây sấy Hưng Phát
 var PRODUCTS = [
-  {id:'xoai', name:'Xoài sấy dẻo', price:89000, old:119000, badge:'Best seller', rating:4.5, reviews:128, stock:72, sold:350, cat:'Trái cây sấy dẻo',
+  {id:'xoai', name:'Xoài sấy dẻo', price:89000, old:119000, badge:'Best seller', rating:4.5, reviews:128, stock:15, sold:350, cat:'Trái cây sấy dẻo',
    desc:'Xoài cát Hòa Lộc chín cây, sấy lạnh giữ màu vàng tự nhiên, vị chua ngọt, dẻo mềm. Không đường hóa học, không chất bảo quản.'},
   {id:'mit', name:'Mít sấy giòn', price:75000, old:95000, badge:'New', rating:4.0, reviews:56, stock:45, sold:120, cat:'Trái cây sấy giòn',
    desc:'Mít Thái múi dày, sấy chân không ở nhiệt độ thấp nên giòn rụm, giữ được mùi thơm đặc trưng.'},
