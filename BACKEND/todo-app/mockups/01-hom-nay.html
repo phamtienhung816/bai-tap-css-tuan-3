@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 1 – Hôm nay | TaskFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../public/css/app.css"></head><body>
+<div class="mock-bar"><b>🎨 MOCKUP</b>
+<a href="01-hom-nay.html" class="active">1 · Hôm nay</a><a href="02-them-sua-task.html" class="">2 · Thêm / Sửa task</a><a href="03-thong-ke.html" class="">3 · Thống kê</a>
+<span class="sp">Bản thiết kế tĩnh – dữ liệu minh họa</span></div>
+<div class="app">
+<aside class="sidebar">
+<div class="brand"><div class="brand-logo">✅</div><div><b>TaskFlow</b><small>Quản lý task cá nhân</small></div></div>
+<nav class="nav"><div class="nav-title">Menu</div>
+<a href="01-hom-nay.html" class="active"><span class="ico">🗓️</span> Hôm nay <span class="count">6</span></a>
+<a href="02-them-sua-task.html"><span class="ico">🗂️</span> Tất cả task</a>
+<a href="03-thong-ke.html" class=""><span class="ico">📊</span> Thống kê</a></nav>
+<nav class="nav cats"><div class="nav-title">Danh mục</div>
+<a><span class="dot" style="background:#6366f1"></span>💼 Công việc<span class="count">39</span></a>
+<a><span class="dot" style="background:#0ea5e9"></span>📚 Học tập<span class="count">40</span></a>
+<a><span class="dot" style="background:#10b981"></span>🏡 Cá nhân<span class="count">24</span></a>
+<a><span class="dot" style="background:#f43f5e"></span>🏃 Sức khỏe<span class="count">26</span></a>
+<a><span class="dot" style="background:#f59e0b"></span>💰 Tài chính<span class="count">25</span></a></nav>
+<div class="sidebar-foot"><div>Hôm nay đã xong <b>2/8</b></div><div class="mini-bar"><i style="width:25%"></i></div></div>
+</aside><main class="main">
+<div class="page-head"><div><h1>Hôm nay</h1><p>Thứ Tư, 25 tháng 11, 2026</p></div><button class="btn btn-primary">＋ Thêm task</button></div>
+<section class="card hero"><div class="ring" style="--p:25"><span>25%</span></div><div style="position:relative;z-index:1">
+<h2>Chào buổi sáng! 👋</h2><p>Bạn còn 6 task cần hoàn thành hôm nay.</p>
+<div class="hero-stats"><div><b>8</b>Tổng task</div><div><b>2</b>Hoàn thành</div><div><b>1</b>Đang làm</div><div><b>7g 40p</b>Dự kiến</div></div></div></section>
+<div class="alert">⏰ <span>Bạn có <b>10</b> task quá hạn chưa hoàn thành.</span><button>Xem ngay</button></div>
+<div class="toolbar"><div class="search"><input placeholder="Tìm theo tiêu đề, mô tả… (gõ không dấu cũng được)"></div>
+<select class="select"><option>Mọi ưu tiên</option></select><select class="select"><option>Mọi danh mục</option></select><select class="select"><option>Sắp xếp: Giờ</option></select></div>
+<div class="chips" style="margin-bottom:16px"><button class="chip active">Tất cả</button><button class="chip">Cần làm</button><button class="chip">Đang làm</button><button class="chip">Hoàn thành</button></div>
+<div class="tasks">
+<article class="task in_progress" style="--cat:#0ea5e9"><button class="check">▶</button><div><div class="task-title">Hoàn thiện báo cáo Todo app</div><div class="task-desc">Viết README, vẽ sơ đồ database và chụp ảnh giao diện.</div><div class="meta"><span class="tag">🕒 09:30 – 11:30</span><span class="tag">⏳ 2 giờ</span><span class="tag cat" style="--cat:#0ea5e9">📚 Học tập</span><span class="tag p-high">🔺 Cao</span><span class="tag s-in_progress">Đang làm</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article>
+<article class="task todo" style="--cat:#6366f1"><button class="check">✓</button><div><div class="task-title">Review pull request của Minh</div><div class="task-desc">Chú ý phần validate dữ liệu đầu vào.</div><div class="meta"><span class="tag">🕒 13:30 – 14:30</span><span class="tag">⏳ 1 giờ</span><span class="tag cat" style="--cat:#6366f1">💼 Công việc</span><span class="tag p-high">🔺 Cao</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article>
+<article class="task todo" style="--cat:#0ea5e9"><button class="check">✓</button><div><div class="task-title">Làm bài tập SQL</div><div class="task-desc">JOIN, GROUP BY và subquery.</div><div class="meta"><span class="tag">🕒 15:00 – 16:30</span><span class="tag">⏳ 1g 30p</span><span class="tag cat" style="--cat:#0ea5e9">📚 Học tập</span><span class="tag p-medium">🔸 Trung bình</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article>
+<article class="task done" style="--cat:#6366f1"><button class="check">✓</button><div><div class="task-title">Họp stand-up với team</div><div class="task-desc">Cập nhật tiến độ và các vướng mắc.</div><div class="meta"><span class="tag">🕒 08:30 – 09:00</span><span class="tag">⏳ 30 phút</span><span class="tag cat" style="--cat:#6366f1">💼 Công việc</span><span class="tag p-medium">🔸 Trung bình</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article>
+</div></main></div></body></html>

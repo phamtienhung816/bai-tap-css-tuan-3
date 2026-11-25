@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow – Quản lý task cá nhân</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✅</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-logo">✅</div>
+        <div><b>TaskFlow</b><small>Quản lý task cá nhân</small></div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-title">Menu</div>
+        <a href="#/today" data-route="today"><span class="ico">🗓️</span> Hôm nay <span class="count" id="navTodayCount">–</span></a>
+        <a href="#/all" data-route="all"><span class="ico">🗂️</span> Tất cả task</a>
+        <a href="#/stats" data-route="stats"><span class="ico">📊</span> Thống kê</a>
+      </nav>
+
+      <nav class="nav cats" id="catNav"></nav>
+
+      <div class="sidebar-foot">
+        <div>Hôm nay đã xong <b id="footDone">0/0</b></div>
+        <div class="mini-bar"><i id="footBar" style="width:0"></i></div>
+      </div>
+    </aside>
+
+    <main class="main" id="view"></main>
+  </div>
+
+  <!-- Dialog thêm / sửa task -->
+  <dialog id="taskDialog">
+    <form method="dialog" id="taskForm" novalidate>
+      <div class="dlg-head">
+        <h2 id="dlgTitle">Thêm task mới</h2>
+        <button type="button" class="icon-btn" data-close aria-label="Đóng">✕</button>
+      </div>
+      <div class="dlg-body">
+        <div class="field" data-f="title">
+          <label for="f_title">Tiêu đề <i>*</i></label>
+          <input id="f_title" name="title" maxlength="200" placeholder="VD: Hoàn thiện báo cáo tuần" autocomplete="off">
+          <div class="err"></div>
+        </div>
+        <div class="field" data-f="description">
+          <label for="f_description">Mô tả</label>
+          <textarea id="f_description" name="description" maxlength="2000" placeholder="Ghi chú thêm về công việc (không bắt buộc)"></textarea>
+          <div class="err"></div>
+        </div>
+        <div class="grid2">
+          <div class="field" data-f="due_date">
+            <label for="f_due_date">Ngày hạn <i>*</i></label>
+            <input type="date" id="f_due_date" name="due_date">
+            <div class="err"></div>
+          </div>
+          <div class="field" data-f="category_id">
+            <label for="f_category_id">Danh mục</label>
+            <select id="f_category_id" name="category_id"></select>
+            <div class="err"></div>
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="field" data-f="start_time">
+            <label for="f_start_time">Giờ bắt đầu</label>
+            <input type="time" id="f_start_time" name="start_time">
+            <div class="err"></div>
+          </div>
+          <div class="field" data-f="end_time">
+            <label for="f_end_time">Giờ kết thúc</label>
+            <input type="time" id="f_end_time" name="end_time">
+            <div class="err"></div>
+          </div>
+          <div class="field" data-f="estimate_min">
+            <label for="f_estimate_min">Ước tính (phút)</label>
+            <input type="number" id="f_estimate_min" name="estimate_min" min="1" max="1440" placeholder="VD: 45">
+            <div class="err"></div>
+          </div>
+        </div>
+        <div class="grid2">
+          <div class="field">
+            <label>Độ ưu tiên</label>
+            <div class="seg">
+              <label><input type="radio" name="priority" value="low"><span>Thấp</span></label>
+              <label><input type="radio" name="priority" value="medium" checked><span>Trung bình</span></label>
+              <label><input type="radio" name="priority" value="high"><span>Cao</span></label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Trạng thái</label>
+            <div class="seg">
+              <label><input type="radio" name="status" value="todo" checked><span>Cần làm</span></label>
+              <label><input type="radio" name="status" value="in_progress"><span>Đang làm</span></label>
+              <label><input type="radio" name="status" value="done"><span>Xong</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dlg-foot">
+        <button type="button" class="btn" data-close>Hủy</button>
+        <button type="submit" class="btn btn-primary" id="saveBtn">Lưu task</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Dialog xác nhận xóa -->
+  <dialog id="confirmDialog" style="width:min(420px,94vw)">
+    <div class="dlg-head"><h2>Xóa task?</h2></div>
+    <div class="dlg-body"><p id="confirmText" style="color:var(--muted)"></p></div>
+    <div class="dlg-foot">
+      <button class="btn" data-close type="button">Hủy</button>
+      <button class="btn btn-danger" id="confirmOk" type="button">Xóa</button>
+    </div>
+  </dialog>
+
+  <div class="toasts" id="toasts"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

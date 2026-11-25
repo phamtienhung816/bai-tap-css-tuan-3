@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup 2 – Thêm / Sửa task | TaskFlow</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../public/css/app.css"></head><body>
+<div class="mock-bar"><b>🎨 MOCKUP</b>
+<a href="01-hom-nay.html" class="">1 · Hôm nay</a><a href="02-them-sua-task.html" class="active">2 · Thêm / Sửa task</a><a href="03-thong-ke.html" class="">3 · Thống kê</a>
+<span class="sp">Bản thiết kế tĩnh – dữ liệu minh họa</span></div>
+<div class="app">
+<aside class="sidebar">
+<div class="brand"><div class="brand-logo">✅</div><div><b>TaskFlow</b><small>Quản lý task cá nhân</small></div></div>
+<nav class="nav"><div class="nav-title">Menu</div>
+<a href="01-hom-nay.html" class=""><span class="ico">🗓️</span> Hôm nay <span class="count">6</span></a>
+<a href="02-them-sua-task.html"><span class="ico">🗂️</span> Tất cả task</a>
+<a href="03-thong-ke.html" class=""><span class="ico">📊</span> Thống kê</a></nav>
+<nav class="nav cats"><div class="nav-title">Danh mục</div>
+<a><span class="dot" style="background:#6366f1"></span>💼 Công việc<span class="count">39</span></a>
+<a><span class="dot" style="background:#0ea5e9"></span>📚 Học tập<span class="count">40</span></a>
+<a><span class="dot" style="background:#10b981"></span>🏡 Cá nhân<span class="count">24</span></a>
+<a><span class="dot" style="background:#f43f5e"></span>🏃 Sức khỏe<span class="count">26</span></a>
+<a><span class="dot" style="background:#f59e0b"></span>💰 Tài chính<span class="count">25</span></a></nav>
+<div class="sidebar-foot"><div>Hôm nay đã xong <b>2/8</b></div><div class="mini-bar"><i style="width:25%"></i></div></div>
+</aside><main class="main">
+<div class="page-head"><div><h1>Tất cả task</h1><p>Tìm kiếm và quản lý toàn bộ công việc của bạn</p></div><button class="btn btn-primary">＋ Thêm task</button></div>
+<div class="tabs"><button class="tab active">Tất cả</button><button class="tab">Quá hạn</button><button class="tab">Sắp tới</button><button class="tab">Chọn ngày</button></div>
+<div style="opacity:.35;pointer-events:none"><div class="group-title">Hôm nay <small>8</small></div><div class="tasks"><article class="task todo" style="--cat:#6366f1"><button class="check">✓</button><div><div class="task-title">Review pull request của Minh</div><div class="task-desc">Chú ý phần validate dữ liệu đầu vào.</div><div class="meta"><span class="tag">🕒 13:30 – 14:30</span><span class="tag cat" style="--cat:#6366f1">💼 Công việc</span><span class="tag p-high">🔺 Cao</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article><article class="task todo" style="--cat:#0ea5e9"><button class="check">✓</button><div><div class="task-title">Làm bài tập SQL</div><div class="task-desc">JOIN, GROUP BY và subquery.</div><div class="meta"><span class="tag">🕒 15:00 – 16:30</span><span class="tag cat" style="--cat:#0ea5e9">📚 Học tập</span><span class="tag p-medium">🔸 Trung bình</span></div></div><div class="task-actions"><button class="icon-btn">✏️</button><button class="icon-btn danger">🗑️</button></div></article></div></div>
+<div style="position:fixed;inset:0;background:rgba(20,18,60,.5);backdrop-filter:blur(3px);display:grid;place-items:center;padding:20px;overflow:auto;z-index:50">
+<div style="background:#fff;border-radius:22px;width:min(620px,100%);box-shadow:var(--shadow-lg)">
+<div class="dlg-head"><h2>Thêm task mới</h2><button class="icon-btn">✕</button></div>
+<div class="dlg-body">
+<div class="field"><label>Tiêu đề <i>*</i></label><input value="Chuẩn bị bài thuyết trình môn Backend"></div>
+<div class="field"><label>Mô tả</label><textarea>Làm slide giới thiệu kiến trúc database và demo trực tiếp.</textarea></div>
+<div class="grid2"><div class="field"><label>Ngày hạn <i>*</i></label><input type="date" value="2026-11-27"></div>
+<div class="field"><label>Danh mục</label><select><option>📚 Học tập</option></select></div></div>
+<div class="grid3"><div class="field"><label>Giờ bắt đầu</label><input type="time" value="14:00"></div>
+<div class="field invalid"><label>Giờ kết thúc</label><input type="time" value="13:00"><div class="err">Giờ kết thúc phải sau giờ bắt đầu</div></div>
+<div class="field"><label>Ước tính (phút)</label><input type="number" value="90"></div></div>
+<div class="grid2"><div class="field"><label>Độ ưu tiên</label><div class="seg"><label>Thấp</label><label>Trung bình</label><label style="background:var(--danger);color:#fff">Cao</label></div></div>
+<div class="field"><label>Trạng thái</label><div class="seg"><label style="background:#64748b;color:#fff">Cần làm</label><label>Đang làm</label><label>Xong</label></div></div></div>
+</div><div class="dlg-foot"><button class="btn">Hủy</button><button class="btn btn-primary">Thêm task</button></div></div></div></main></div></body></html>

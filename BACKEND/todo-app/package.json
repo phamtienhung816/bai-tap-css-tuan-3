@@ -1,0 +1,17 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "Todo app quản lý task cá nhân - Node.js + Express + SQLite",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "reset-db": "node src/seed.js",
+    "test": "node --test test/"
+  },
+  "engines": { "node": ">=22.5.0" },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
